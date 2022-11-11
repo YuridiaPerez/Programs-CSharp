@@ -1,0 +1,39 @@
+bool s = false;
+while (!s)
+{
+    try
+    {
+        Console.WriteLine("1. Nombre en pantalla");
+        Console.WriteLine("2. Hora en pantalla");
+        Console.WriteLine("Elige una de las opciones");
+
+        int op = Convert.ToInt32(Console.ReadLine());
+
+        switch (op)
+        {
+            case 1:
+                Console.WriteLine("Nombre en pantalla");
+                Console.WriteLine("'/********************************************\'");
+                string x;
+                Console.WriteLine("Escribe tu nombre");
+                x = Console.ReadLine();
+                Console.WriteLine("El nombre que escribio fue: \n" + x);
+                Console.WriteLine("'/********************************************\'");
+                break;
+
+            case 2:
+                Console.WriteLine("Hora en pantalla");
+                DateTime thisDate1 = new DateTime(2011, 6, 10);
+                Console.WriteLine("Today is " + thisDate1.ToString("MMMM dd, yyyy") + ".");
+
+                DateTimeOffset thisDate2 = new DateTimeOffset(2011, 6, 10, 15, 24, 16,
+                                                              TimeSpan.Zero);
+                Console.WriteLine("The current date and time: {0:MM/dd/yy H:mm:ss zzz}",
+                                   thisDate2);
+                break;
+
+        }
+    }
+    catch (FormatException e) { Console.WriteLine(e.Message); }
+}
+Console.ReadLine();
